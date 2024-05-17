@@ -1,0 +1,9 @@
+FROM ubuntu:latest
+
+RUN apt-get update -y
+RUN apt-get install -y python3-pip python3-dev build-essential python3-requests
+COPY ./src/client /myapp_client
+WORKDIR /myapp_client 
+
+ENTRYPOINT ["python3"]
+CMD ["tm_pinger.py"]
